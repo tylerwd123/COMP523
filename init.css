@@ -1,9 +1,13 @@
 body{
-  
-}
-head{
-  
+background-image: url("http://www.robd.net/unc/images/desktop-backgrounds/UNC-CH-wallpaper.jpg"); 
+font-family:sans-serif;
+margin:auto;
+width:40%;
+background-repeat:no-repeat;
+background-size:cover;
 }
 h1{
-  
+margin:auto;
+color:white;
+width:40%;
 }

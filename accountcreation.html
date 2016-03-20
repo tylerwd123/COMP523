@@ -2,23 +2,73 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js">
+		</script>
+		<script>
+		$(document).ready(function(){
+		$("#button").click(function(){
+            var MongoClient = require('mongodb').MongoClient;
+            var userColl = db.collection('users');
+            var insdoc = {"user": "psw"}; //document to be inserted into collection, given !exist already 
+            var user = $("#username");
+            var psw = $("#psw");
+            var psw2 = $("#psw2");
+            var firstname = $("#firstname");
+            var lastname = $("#lastname");
+            if(user.val().length > 0){                //check username exists
+                if(psw.val().length >0){                        //password length exists
+                    if($("#psw").val() == $("#psw2").val()){        //passwords are same
+                        if(firstname.val() > 0){                   //check firstname exists
+                            if(lastname.val()> 0){                      //check lastname exists
+                            // check database for same usernames/similar usernames     
+                            MongoClient.connect("",function(err,db){            //Location of database here between quotes 
+                                    if(!err){
+                                        console.log("Connected to Database");
+                                            }
+                                    if(userColl.find(insdoc) != null){ //LINE TO QUERY WHETHER USERNAME ALREADY EXISTS
+                                    userColl.insert(insdoc);        // Insert document here
+                                    }
+                            });
+                            window.location.replace("http://truthgame-jnlovell.apps.unc.edu/");
+                            //RETURN TO ORIGINAL LOGIN PAGE HERE
+                            }
+                            else{
+                                alert("Please Enter Last Name");
+                            }
+                        }
+                        else{
+                            alert("Please Enter First Name");
+                        }
+                    }
+                    else{
+                        alert("Password 1 does not equal Password 2");
+                    }
+                }
+                else{
+                    alert("Please Enter A Password");
+                }
+            }
+            else{
+                alert("Please Enter A User name");
+            }
+		});
+		});
+		</script>
 		<title>Account Creation</title>
 	</head>
 	<body>
   User name:
-  <input type="text" name="username"><br>
+  <input type="text" name="username" id="username"><br>
   Password:
-  <input type="password" name="psw"><br>
+  <input type="password" name="psw" id="psw"><br>
   Repeat Password:
-  <input type="repeatpassword" name="psw"><br>
+  <input type="password" name="psw" id="psw2"><br>
   First Name:
-  <input type="fname" name="psw"><br>
+  <input type="fname" name="firstn" id="firstname"><br>
   Last Name: 
-  <input type="lname" name="psw"><br>
-  Grade: 
-  <input type="grade" name="psw"><br>
+  <input type="lname" name="lastn" id="lastname"><br>
     <FORM>
-    <INPUT Type="BUTTON" Value="Create Account!"  Onclick="window.location.href='userhome.html'">
+    <INPUT Type="BUTTON" Value="Create Account!"  id="button">
 </FORM>
 	</body>
 </html>
