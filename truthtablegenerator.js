@@ -4,9 +4,9 @@ var actions = ["is sitting", "is eating", "is juggling"];
 var truthfunctions = ["AND", "OR", "IMPLIES"];
 
 
-////////////////////////// errors with redundancy
+////////////////////////// errors with redundancy fix when database set up
 
-// exportable function which generates a "truth table" 
+// exportable function which statements for a truth table
 // generates three statements
 // begins with 3 ideas essentially consisting of 3 unique people paired with a non-unique verb (action)
 // Then forms statements by taking two ideas and inserting a truth function

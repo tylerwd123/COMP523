@@ -4,6 +4,7 @@
 		<meta charset="utf-8">
 		<title>Game Starter</title>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+        <script src="tables.js"></script>   
 <style>
 table, th, td {
     border: 1px solid black;
@@ -12,10 +13,14 @@ table, th, td {
 </style>
 	</head>
 	<body>
-  <button>Create row</button>
-First name: <input type="number" name="fname"><br>
-       <div id="truth_table"></div>
-     <script src="JS/tables.js"></script>   
-        
+ 
+    <table id='truth_table'>
+        <tr>
+            <th id='header0'></th>
+            <th id='header1'></th>
+            <th id='header2'></th>
+        </tr>
+    </table>
+         <button id='check_filled'>Evaluate</button>
 	</body>
 </html>
