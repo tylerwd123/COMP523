@@ -7,8 +7,8 @@
 		<script>
 		$(document).ready(function(){
 		$("#button").click(function(){
-            var MongoClient = require('mongodb').MongoClient;
-            var userColl = db.collection('users');
+        //    var MongoClient = require('mongodb').MongoClient;
+        //    var userColl = db.collection('users');
             var insdoc = {"user": "psw"}; //document to be inserted into collection, given !exist already 
             var user = $("#username");
             var psw = $("#psw");
@@ -21,16 +21,16 @@
                         if(firstname.val() > 0){                   //check firstname exists
                             if(lastname.val()> 0){                      //check lastname exists
                             // check database for same usernames/similar usernames     
-                            MongoClient.connect("",function(err,db){            //Location of database here between quotes 
-                                    if(!err){
-                                        console.log("Connected to Database");
-                                            }
-                                    if(userColl.find(insdoc) != null){ //LINE TO QUERY WHETHER USERNAME ALREADY EXISTS
-                                    userColl.insert(insdoc);        // Insert document here
-                                    }
-                            });
-                            window.location.replace("http://truthgame-jnlovell.apps.unc.edu/");
-                            //RETURN TO ORIGINAL LOGIN PAGE HERE
+                          //  MongoClient.connect("",function(err,db){            //Location of database here between quotes 
+                           //         if(!err){
+                            //            console.log("Connected to Database");
+                           //                 }
+                           //         if(userColl.find(insdoc) != null){ //LINE TO QUERY WHETHER USERNAME ALREADY EXISTS
+                          //          userColl.insert(insdoc);        // Insert document here
+                           //         }
+                     //       });
+                   //         window.location.replace("http://truthgame-jnlovell.apps.unc.edu/");
+                   //         //RETURN TO ORIGINAL LOGIN PAGE HERE
                             }
                             else{
                                 alert("Please Enter Last Name");
@@ -68,7 +68,7 @@
   Last Name: 
   <input type="lname" name="lastn" id="lastname"><br>
     <FORM>
-    <INPUT Type="BUTTON" Value="Create Account!"  id="button">
+    <INPUT Type="BUTTON" Value="Create Account!"  Onclick="window.location.href='index.html'"id="button">
 </FORM>
 	</body>
 </html>

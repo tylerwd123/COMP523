@@ -4,6 +4,30 @@
 		<meta charset="utf-8">
         <link rel="stylesheet" type="text/css" href="init.css">
 		<title>Truth Tables Login Page</title>
+         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js">
+		</script>
+		<script>
+    $(document).ready(function(){
+		$("#button").click(function(){
+           var username = $("#username");
+           var password = $("#password");
+            
+            if(username.val().length == 0 || password.val().lengt == 0){
+             alert("Please enter a valid User name and User password");
+            }
+          //  else{
+           //     alert("Please enter a valid User name and User password");
+          //  }
+               //Code here in order to verify login and password 
+            
+            
+            
+            
+            
+        
+        });
+            });
+        </script>
 	</head>
     <h1>Truth Tables Login Page</h1>
     <br>
@@ -11,16 +35,16 @@
 	<body>   
 <form id="wholeform">
   User name:<br>
-  <input type="text" name="username"><br>
+  <input type="text" name="username" id="username"><br>
   User password:<br>
-  <input type="password" name="psw">
+  <input type="password" name="password" id="password">
     <br><br>
     <FORM>
-    <INPUT Type="BUTTON" Value="Login"  Onclick="window.location.href='userhome.html'">
+    <INPUT Type="BUTTON" Value="Login"  Onclick="window.location.href='userhome.html'" id = "button">
 </FORM>
     <FORM>
         <br>
-    <INPUT Type="BUTTON" Value="Create Account"  Onclick="window.location.href='accountcreation.html'">
+    <INPUT Type="BUTTON" Value="Create Account" >
 </FORM>
     
 </form>
